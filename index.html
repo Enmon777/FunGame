@@ -567,7 +567,7 @@
       // ----- step: love (yes/no) -----
       function renderLove() {
         container.innerHTML = `
-          <h1>💕 Do you love Enmon? 💕</h1>
+          <h1>💕 Do you love Me Jaaaan Pakhi? 💕</h1>
           <div class="subhead">be honest 🥺</div>
           <div class="yes-no-box" id="yesNoBox">
             <button class="yes-btn" id="yesBtn">💖 YES 💖</button>
@@ -608,7 +608,7 @@
 
         yesBtn.addEventListener('click', function() {
           // go to password
-          currentStep = 'password';
+          currentStep = 'gallery';
           render();
         });
 
@@ -624,46 +624,6 @@
           }
         `;
         document.head.appendChild(styleShake);
-      }
-
-      // ----- step: password -----
-      function renderPassword() {
-        container.innerHTML = `
-          <h1>🔐 password please 🔐</h1>
-          <div class="subhead">whisper it ...</div>
-          <div class="password-area">
-            <input type="password" id="passwordInput" placeholder="••••••••" autocomplete="off">
-            <br>
-            <button class="action-btn" id="passwordSubmitBtn">✨ unlock ✨</button>
-          </div>
-          <div style="font-size: 2rem; margin-top: 5px;">🔑🐱💖</div>
-        `;
-        const passInput = document.getElementById('passwordInput');
-        const passBtn = document.getElementById('passwordSubmitBtn');
-        function checkPass() {
-          const val = passInput.value.trim();
-          if (val === 'FariDuhh') {
-            currentStep = 'gallery';
-            render();
-          } else {
-            passInput.style.borderColor = '#d97a7a';
-            passInput.style.background = '#ffe3e3';
-            setTimeout(() => {
-              passInput.style.borderColor = '';
-              passInput.style.background = '';
-            }, 500);
-            const wrong = document.createElement('div');
-            wrong.textContent = '❌ nope, try again (hint: it\'s FariDuhh)';
-            wrong.style.color = '#b1557a';
-            wrong.style.marginTop = '8px';
-            container.appendChild(wrong);
-            setTimeout(() => wrong.remove(), 2000);
-            passInput.value = '';
-          }
-        }
-        passBtn.addEventListener('click', checkPass);
-        passInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') checkPass(); });
-        passInput.focus();
       }
 
       // ----- step: gallery (images) -----
